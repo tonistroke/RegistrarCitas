@@ -10,13 +10,7 @@ router.get('/', async (req, res) => {
 
 // crear nueva cita
 router.post('/nuevo', async (req, res) => {
-  const nuevaCita = new Cita(
-    req.body // What the Vue App is sending
-    /* { // pass in body content to be stored in DB
-        author:"Flanders", 
-        todo:"Go to canada"
-      } */
-  );
+  const nuevaCita = new Cita(req.body);
   const guardarCita = await nuevaCita.save(); // mongodb metodo para guardar en db
   res.json(guardarCita); // respond with json to our post endpoint
 });
