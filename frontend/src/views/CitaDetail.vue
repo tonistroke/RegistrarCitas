@@ -53,7 +53,7 @@ export default {
   setup() {
     const { editCita, state, GetSpecificCita, cita, citaId } = Citacrud();
 
-    GetSpecificTodo();
+    GetSpecificCita();
     return {
       cita,
       citaId,

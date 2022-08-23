@@ -13,25 +13,19 @@ const routes = [
     name: 'citas',
 
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/CitasView.vue'),
+      import('../views/CitasView.vue'),
   },
   {
     path: '/cita/:id',
     name: 'Cita single',
     component: CitaDetail,
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    //  component: () => import(/* webpackChunkName: "about" */ '../views/TodoDetail.vue')
   },
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+      import('../views/AboutView.vue'),
   },
 ];
 
