@@ -56,11 +56,11 @@ import citacrud from '../modules/citacrud';
 import { onMounted } from 'vue';
 export default {
   setup() {
-    const { state, GetAllCitas, newCita, deleteCita, editCita } = citacrud();
+    const { state, GetAllCitas, nuevaCita, deleteCita, editCita } = citacrud();
     onMounted(() => {
       GetAllCitas();
     });
-    return { state, GetAllCitas, newCita, deleteCita, editCita };
+    return { state, GetAllCitas, nuevaCita, deleteCita, editCita };
   },
 };
 </script>

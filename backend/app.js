@@ -26,7 +26,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log('MongoDB connected');
+    console.log('MongoDB connectado');
   })
   .catch((err) => console.log(err));
 

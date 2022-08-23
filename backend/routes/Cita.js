@@ -2,51 +2,43 @@ const express = require('express');
 const router = express.Router();
 const Cita = require('../models/Citas');
 
-const express = require('express');
-const router = express.Router();
-const Todo = require('../models/Todos');
-
-// Get All Todo route
+// Get All citas route
 router.get('/', async (req, res) => {
-  const todos = await Todo.find();
-  res.json(todos);
+  const citas = await Cita.find();
+  res.json(citas);
 });
 
-// Create new Todo
-router.post('/new', async (req, res) => {
-  const newTodo = new Todo(
+// crear nueva cita
+router.post('/nuevo', async (req, res) => {
+  const nuevaCita = new Cita(
     req.body // What the Vue App is sending
     /* { // pass in body content to be stored in DB
         author:"Flanders", 
         todo:"Go to canada"
       } */
   );
-  const savedTodo = await newTodo.save(); // mongo save method
-  res.json(savedTodo); // respond with json to our post endpoint
+  const guardarCita = await nuevaCita.save(); // mongodb metodo para guardar en db
+  res.json(guardarCita); // respond with json to our post endpoint
 });
 
 // Getter by id
-router.get('/get/:id', async (req, res) => {
-  const t = await Todo.findById({ _id: req.params.id });
+router.get('/buscar/:id', async (req, res) => {
+  const t = await Cita.findById({ _id: req.params.id });
   res.json(t);
 });
 
-// Delete a todo by id
-router.delete('/delete/:id', async (req, res) => {
-  const tDelete = await Todo.findByIdAndDelete({ _id: req.params.id });
+// Eliminar una cita por id
+router.delete('/eliminar/:id', async (req, res) => {
+  const tDelete = await Cita.findByIdAndDelete({ _id: req.params.id });
   res.json(tDelete);
 });
 
-// Update a todo by id
-router.put('/update/:id', async (req, res) => {
-  const tUpdate = await Todo.updateOne(
+// Actualizar cita por id
+router.put('/actualizar/:id', async (req, res) => {
+  const tUpdate = await Cita.updateOne(
     { _id: req.params.id },
 
     { $set: req.body }
-    /*  {
-      author: "Bart",
-      todo: "Skating"
-    } */
   );
   res.json(tUpdate);
 });
